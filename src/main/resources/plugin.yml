@@ -1,0 +1,7 @@
+name: RedstoneLimiter
+description: Limits excessive redstone usage
+version: ${version}
+author: Byteflux
+main: net.minelink.redstonelimiter.RedstoneLimiter
+permissions:
+  redstonelimiter.notify: {default: op}
