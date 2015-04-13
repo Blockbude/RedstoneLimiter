@@ -26,6 +26,7 @@ public final class RedstoneLimiter extends JavaPlugin implements Listener {
     private static final Set<Material> ignoredMaterials = ImmutableSet.<Material>builder()
             .add(Material.SIGN_POST)
             .add(Material.WALL_SIGN)
+            .add(Material.TRAP_DOOR)
             .build();
 
     private ConcurrentMap<BlockPosition, AtomicInteger> scores = new ConcurrentHashMap<>(20000, 0.8F, 2);
