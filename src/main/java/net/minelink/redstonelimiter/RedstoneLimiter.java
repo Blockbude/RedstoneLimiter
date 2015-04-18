@@ -23,10 +23,18 @@ public final class RedstoneLimiter extends JavaPlugin implements Listener {
 
     private static final Random random = new Random();
 
-    private static final Set<Material> ignoredMaterials = ImmutableSet.<Material>builder()
-            .add(Material.SIGN_POST)
-            .add(Material.WALL_SIGN)
-            .add(Material.TRAP_DOOR)
+    private static final Set<Material> materials = ImmutableSet.<Material>builder()
+            .add(Material.DIODE_BLOCK_OFF)
+            .add(Material.DIODE_BLOCK_ON)
+            .add(Material.LEVER)
+            .add(Material.REDSTONE_BLOCK)
+            .add(Material.REDSTONE_COMPARATOR_OFF)
+            .add(Material.REDSTONE_COMPARATOR_ON)
+            .add(Material.REDSTONE_LAMP_OFF)
+            .add(Material.REDSTONE_LAMP_ON)
+            .add(Material.REDSTONE_TORCH_OFF)
+            .add(Material.REDSTONE_TORCH_ON)
+            .add(Material.REDSTONE_WIRE)
             .build();
 
     private ConcurrentMap<BlockPosition, AtomicInteger> scores = new ConcurrentHashMap<>(20000, 0.8F, 2);
@@ -66,7 +74,7 @@ public final class RedstoneLimiter extends JavaPlugin implements Listener {
     @EventHandler(priority = EventPriority.HIGHEST)
     public void limitRedstone(BlockRedstoneEvent event) {
         Block block = event.getBlock();
-        if (ignoredMaterials.contains(block.getType()) || event.getOldCurrent() != 0) {
+        if (!materials.contains(block.getType()) || event.getOldCurrent() != 0) {
             return;
         }
 
