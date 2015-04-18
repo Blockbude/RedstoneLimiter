@@ -28,8 +28,6 @@ public final class RedstoneLimiter extends JavaPlugin implements Listener {
             .add(Material.DIODE_BLOCK_ON)
             .add(Material.LEVER)
             .add(Material.REDSTONE_BLOCK)
-            .add(Material.REDSTONE_COMPARATOR_OFF)
-            .add(Material.REDSTONE_COMPARATOR_ON)
             .add(Material.REDSTONE_LAMP_OFF)
             .add(Material.REDSTONE_LAMP_ON)
             .add(Material.REDSTONE_TORCH_OFF)
